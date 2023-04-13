@@ -14,12 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::table('trains', function (Blueprint $table) {
-            $table->string('Orario di Partenza');
-            $table->string('Orario di Arrivo');
-            $table->unsignedSmallInteger('Codice Treno');
-            $table->unsignedSmallInteger('Numero Carrozze');
-            $table->time('In orario');
-            $table->string('Cancellato', 15);
+            $table->datetime('arrival_time');
+            $table->string('code', 10);
+            $table->string('number_of_carriages', 5);
+            $table->boolean('delay');
+            $table->boolean('deleted');
+            $table->timestamps();
         });
     }
 
